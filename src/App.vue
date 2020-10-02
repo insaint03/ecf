@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <!-- appbar -->
-    <v-app-bar app flat prominent shrink-on-scroll>
+    <v-app-bar app flat prominent shrink-on-scroll style="background-color: white;">
       <v-toolbar-title>
         <router-link to="/">
           <v-img src="/logo.rect.png" contain title="취운화 로고;마름모" alt="취운화" height="100%" />
@@ -45,10 +45,11 @@
           사업자 등록번호 (대표 김아름)<br />
         </v-col>
         <v-col class="grey--text">
-          사이트의 모든 사진 및 디자인, 저작물은 <br />
-          취운화의 배타적 소유로 대한민국 저작권법을 적용 받습니다.<br />
+          
         </v-col>
         <v-col class="grey--text" align="right">
+          사이트의 모든 사진 및 디자인, 저작물은 <br />
+          취운화의 배타적 소유로 대한민국 저작권법을 적용 받습니다.<br />
           All Rights reserved &copy;EmeraldCloudFlower<br />
         </v-col>
       </v-row>
