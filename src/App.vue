@@ -36,7 +36,7 @@
 
     <!-- appbar -->
     <v-app-bar app flat prominent shrink-on-scroll style="background-color: white;" class="font-title">
-      <img :src="logo_vector" title="취운화 로고;마름모" alt="취운화" style="height: 90%; cursor: pointer;" class="mv-auto" @click="$router.push('/')" />
+      <img :src="logo_raster" title="취운화 로고;마름모" alt="취운화" style="height: 90%; cursor: pointer;" class="mv-auto" @click="$router.push('/')" />
 
       <v-spacer />
 
