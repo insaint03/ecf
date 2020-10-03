@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <v-row>
-      <v-col cols="12" lg="6">
+      <v-col cols="12" md="6" lg="4">
         <v-card elevation="1">
           <v-toolbar dark flat color="secondary">
             <v-toolbar-title>취운화 연락처 / Contacts</v-toolbar-title>
@@ -31,7 +31,7 @@
         </v-card>
       </v-col>
 
-      <v-col cols="12" lg="6">
+      <v-col cols="12" md="6" lg="8">
         <v-card elevation="1">
           <v-toolbar dark flat color="secondary">
             <v-toolbar-title>주문 상담 / Orders</v-toolbar-title>
