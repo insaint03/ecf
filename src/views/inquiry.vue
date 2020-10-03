@@ -1,84 +1,89 @@
 <template>
-  <screen-template>
-    <template #subpanel>
-      <v-tooltip right>
-        <template #activator="{on}">
-          <v-btn v-on="on" fab target="_blank" href="https://pf.kakao.com/_KYqDT/chat">
-            <v-icon>mdi-chat</v-icon>
-          </v-btn>
-        </template>
-        <div>지금 바로 카카오챗 상담하세요</div>
-      </v-tooltip>
-    </template>
-    <template #mainpanel>
-      <v-card flat>
-        <v-toolbar dark dense>
-          <v-toolbar-title>자주 묻는 질문 / FAQ</v-toolbar-title>
-        </v-toolbar>
-        <v-card-text>
-          <v-expansion-panels>
-            <v-expansion-panel>
-              <v-expansion-panel-header>
-                주문하고 나면 언제쯤 받아 볼 수 있나요?
-              </v-expansion-panel-header>
-              <v-expansion-panel-content>
-                취운화의 꽃은 주문 제작을 기반으로, 통상 준비와 제작에 <i>3-7일</i>이 소요됩니다.<br />
-                재료인 꽃 수급 상황에 따라 일정이 유동적일 수 있으니, 꼭 충분한 시간을 두고 주문 부탁 드립니다.
-              </v-expansion-panel-content>
-            </v-expansion-panel>
+  <v-container>
+    <v-row>
+      <v-col cols="12" lg="6">
+        <v-card elevation="1">
+          <v-toolbar dark flat color="secondary">
+            <v-toolbar-title>취운화 연락처 / Contacts</v-toolbar-title>
+            <v-spacer />
+            <v-toolbar-items>
+              <v-icon>mdi-phone</v-icon>
+            </v-toolbar-items>
+          </v-toolbar>
+          <v-card-text>
+            <v-list>
+              <v-subheader>채널 취운화 구독하세요</v-subheader>
+              <v-list-item v-for="ch in socials" :key="`subs-channel.${ch.channel}`" :href="ch.href" color="primary" :title="ch.channel">
+                <v-list-item-avatar><v-icon color="secondary">{{ ch.icon }}</v-icon></v-list-item-avatar>
+                <v-list-item-title>{{ ch.channel }}</v-list-item-title>
+              </v-list-item>
+            </v-list>
+            <v-divider />
+            <v-subheader>지금 바로 주문/문의 주세요</v-subheader>
+            <v-list>
+              <v-list-item title="카카오톡 채널 문의"
+                target="_blank" href="https://pf.kakao.com/_KYqDT/chat">
+                <v-list-item-avatar><v-icon color="primary">mdi-chat</v-icon></v-list-item-avatar>
+                <v-list-item-title>카카오톡 채널 문의</v-list-item-title>
+              </v-list-item>
+            </v-list>
+          </v-card-text>
+        </v-card>
+      </v-col>
 
-            <v-expansion-panel>
-              <v-expansion-panel-header>
-                서울 수도권만 배송 가능한가요?
-              </v-expansion-panel-header>
-              <v-expansion-panel-content>
-                일반적으로 그렇습니다. 운반이 어려운 꽃의 특성상 장거리 운송이나 택배는 지원하지 않습니다<br />
-                강남/성남 지역을 중심으로 차량 1-2시간 내외 냉장 운송이 가능한 거리를 대상으로 하고 있습니다.<br />
-                단, 취급 주문에 따라 대응 가능하니, 자세한 내용은 필히 문의 바랍니다.
-              </v-expansion-panel-content>
-            </v-expansion-panel>
-
-            <v-expansion-panel>
-              <v-expansion-panel-header>
-                최소 주문 금액이 있나요?
-              </v-expansion-panel-header>
-              <v-expansion-panel-content>
-                취운화의 꽃은 주문 제작 방식이기 때문에 배송비 제외, 합산 7만원 이상 주문을 받고 있습니다 <br />
-              </v-expansion-panel-content>
-            </v-expansion-panel>
-
-            <v-expansion-panel>
-              <v-expansion-panel-header>
-                수업은 언제 시작하나요?
-              </v-expansion-panel-header>
-              <v-expansion-panel-content>
-                내 맴입니다.
-              </v-expansion-panel-content>
-            </v-expansion-panel>
-
-            <v-expansion-panel>
-              <v-expansion-panel-header>
-                주문제작만 가능한가요?
-              </v-expansion-panel-header>
-              <v-expansion-panel-content>
-                네, 그렇습니다! 취운화는 현재 주문 제작만 받고 있습니다.
-              </v-expansion-panel-content>
-            </v-expansion-panel>
-
-          </v-expansion-panels>
-        </v-card-text>
-      </v-card>
-    </template>
-  </screen-template>
+      <v-col cols="12" lg="6">
+        <v-card elevation="1">
+          <v-toolbar dark flat color="secondary">
+            <v-toolbar-title>주문 상담 / Orders</v-toolbar-title>
+            <v-spacer />
+            <v-toolbar-items>
+              <v-icon>mdi-go-kart</v-icon>
+            </v-toolbar-items>
+          </v-toolbar>
+          <v-card-text>
+            <v-tabs vertical>
+              <v-tab>자주 묻는 질문</v-tab>
+              <v-divider />
+              <v-tab>주문 팁</v-tab>
+              <v-tab>배송 팁</v-tab>
+              <v-tab>받으신 후</v-tab>
+              
+              <v-tab-item>
+                <v-expansion-panels popout flat multiple>
+                  <v-expansion-panel v-for="(q, qi) in faq" :key="`inquiry.faq-${qi}`">
+                    <v-expansion-panel-header>{{ q.q }}</v-expansion-panel-header>
+                    <v-expansion-panel-content align="left">
+                      <p v-for="(a,line) in q.a.split(/[\r\n]/)" :key="`inquiry.faq-${qi}:${line}`">{{ a }}</p>
+                    </v-expansion-panel-content>
+                  </v-expansion-panel>
+                </v-expansion-panels>
+              </v-tab-item>
+              <v-tab-item>가이드 요약 전체</v-tab-item>
+              <v-tab-item>주문 가이드</v-tab-item>
+              <v-tab-item>배송 가이드</v-tab-item>
+              <v-tab-item>사후관리 가이드</v-tab-item>
+            </v-tabs>
+          </v-card-text>
+        </v-card>
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
  
 <script>
+import logoImage from '@/assets/logo.png'
+import channels from '@/channels'
+import questionares from '@/faq'
+
 export default {
     path: 'inquiry',
     name: 'inquiry',
     routeTitle: '문의',
     data() {
       return {
+        socials: channels,
+        logo_image: logoImage,
+        faq: questionares
       }
     }
 }

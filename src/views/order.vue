@@ -1,5 +1,5 @@
 <template>
-  <base-screen>
+  <screen-template>
     <v-card>
       <div align="center" justify="center">
         <img src="/logo.round.png" />
@@ -15,7 +15,7 @@
         <v-spacer />
       </v-card-actions>
     </v-card>
-  </base-screen>
+  </screen-template>
 </template>
  
 <script>
