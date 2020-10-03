@@ -31,38 +31,41 @@
         </v-card>
       </v-col>
 
-      <v-col cols="12" md="6" lg="8">
+      <v-col cols="12" md="6" lg="4">
         <v-card elevation="1">
           <v-toolbar dark flat color="secondary">
-            <v-toolbar-title>주문 상담 / Orders</v-toolbar-title>
+            <v-toolbar-title>주문 안내</v-toolbar-title>
             <v-spacer />
             <v-toolbar-items>
               <v-icon>mdi-go-kart</v-icon>
             </v-toolbar-items>
           </v-toolbar>
           <v-card-text>
-            <v-tabs vertical>
-              <v-tab>자주 묻는 질문</v-tab>
-              <v-divider />
-              <v-tab>주문 팁</v-tab>
-              <v-tab>배송 팁</v-tab>
-              <v-tab>받으신 후</v-tab>
-              
-              <v-tab-item>
-                <v-expansion-panels popout flat multiple>
-                  <v-expansion-panel v-for="(q, qi) in faq" :key="`inquiry.faq-${qi}`">
-                    <v-expansion-panel-header>{{ q.q }}</v-expansion-panel-header>
-                    <v-expansion-panel-content align="left">
-                      <p v-for="(a,line) in q.a.split(/[\r\n]/)" :key="`inquiry.faq-${qi}:${line}`">{{ a }}</p>
-                    </v-expansion-panel-content>
-                  </v-expansion-panel>
-                </v-expansion-panels>
-              </v-tab-item>
-              <v-tab-item>가이드 요약 전체</v-tab-item>
-              <v-tab-item>주문 가이드</v-tab-item>
-              <v-tab-item>배송 가이드</v-tab-item>
-              <v-tab-item>사후관리 가이드</v-tab-item>
-            </v-tabs>
+            - 주문시 참고사항
+
+
+          </v-card-text>
+        </v-card>
+      </v-col>
+
+      <v-col cols="12" md="6" lg="4">
+        <v-card elevation="1">
+          <v-toolbar dark flat color="secondary">
+            <v-toolbar-title>자주 묻는 질문</v-toolbar-title>
+            <v-spacer />
+            <v-toolbar-items>
+              <v-icon>mdi-help</v-icon>
+            </v-toolbar-items>
+          </v-toolbar>
+          <v-card-text>
+            <v-expansion-panels popout flat multiple>
+              <v-expansion-panel v-for="(q, qi) in faq" :key="`inquiry.faq-${qi}`">
+                <v-expansion-panel-header>{{ q.q }}</v-expansion-panel-header>
+                <v-expansion-panel-content align="left">
+                  <p v-for="(a,line) in q.a.split(/[\r\n]/)" :key="`inquiry.faq-${qi}:${line}`">{{ a }}</p>
+                </v-expansion-panel-content>
+              </v-expansion-panel>
+            </v-expansion-panels>
           </v-card-text>
         </v-card>
       </v-col>
@@ -71,7 +74,7 @@
 </template>
  
 <script>
-import logoImage from '@/assets/logo.png'
+import logo_raster from '@/assets/logo.png'
 import channels from '@/channels'
 import questionares from '@/faq'
 
@@ -82,7 +85,7 @@ export default {
     data() {
       return {
         socials: channels,
-        logo_image: logoImage,
+        logo_image: logo_raster,
         faq: questionares
       }
     }

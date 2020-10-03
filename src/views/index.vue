@@ -57,9 +57,10 @@
                 <img :src="logo" width="69%" />
               </v-col>
               <v-col cols="12" md="6" lg="8">
-                <h2 class="font-title" color="accent">취운화는 말이지</h2>
-                <div>
-                  취운화는 어쩌구저쩌구
+                <h2 class="font-title" color="accent">꽃과 식물로 크고 작은 공간을 구성합니다</h2>
+                <h4 color="primary" align="right"> - 취운 / 플로리스트</h4>
+                <div align="left" justify="center">
+                  
                 </div>
               </v-col>
             </v-row>
@@ -93,7 +94,7 @@
  
 <script>
 import gallerySettings from '@/assets/gallery/gallery'
-import logoImage from '@/assets/logo.svg'
+import logo_raster from '@/assets/logo.512.png'
 
 const dummy_tag_group = [
   {grp:'형태', tags: [
@@ -158,7 +159,7 @@ export default {
       hover_image: null,
       tags: dummy_tag_group,
       images: gallerySettings.images,
-      logo: logoImage,
+      logo: logo_raster,
     }
   }
 }

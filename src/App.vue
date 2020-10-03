@@ -1,43 +1,67 @@
 <template>
   <v-app>
+    <v-navigation-drawer class="d-block d-sm-none" v-model="show_drawer" fixed>
+      <div align="center" justify="center">
+        <v-img :src="logo_raster" style="width: 128px; height: 128px; margin: 24px; cursor: pointer;" @click="$router.push('/')" />
+      </div>
+      <v-divider />
+      <v-list>
+        <v-list-item-group>
+          <v-list-item v-for="m in menu" :key="`gnb.nav-${m.path}`" @click="$router.push(m.path)"
+            :color="`${ m.path == $route.path ? 'accent' : 'grey' }`">
+            <template v-if="m.badge">
+                <v-badge color="secondary" v-bind="m.badge">{{ m.title }}</v-badge> 
+              </template>
+              <template v-else>
+                {{ m.title }}
+              </template>
+          </v-list-item>
+        </v-list-item-group>
+        <v-divider />
+        <v-list-item-group>
+          <v-list-item>
+            <v-list-item-content>
+              <div class="d-flex justify-space-around" align="center">
+                <v-btn v-for="s in social" :key="`gnb.nav-social.${s.channel}`" :href="s.href" :title="s.channel" 
+                  icon fab>
+                  <v-icon>{{ s.icon }}</v-icon>
+                </v-btn>
+              </div>
+            </v-list-item-content>
+          </v-list-item>
+        </v-list-item-group>
+        <v-divider />
+      </v-list>
+    </v-navigation-drawer>
+
     <!-- appbar -->
     <v-app-bar app flat prominent shrink-on-scroll style="background-color: white;" class="font-title">
-      <img :src="logoImage" title="취운화 로고;마름모" alt="취운화" style="height: 90%;" class="mv-auto" />
+      <img :src="logo_vector" title="취운화 로고;마름모" alt="취운화" style="height: 90%; cursor: pointer;" class="mv-auto" @click="$router.push('/')" />
 
       <v-spacer />
 
-      <v-toolbar-items>
+      <v-toolbar-items class="d-none d-sm-inline-block">
         <v-tabs color="primary">
-          <v-tab @click="$router.push('/')">취운화</v-tab>
-          <v-tab @click="$router.push('/inquiry')">주문/문의</v-tab>
-          <v-tab @click="$router.push('/class')">
-            <v-badge color="primary" icon="mdi-exclamation" small>수업</v-badge>
+          <v-tab v-for="m in menu" :key="`gnb-${m.path}`" @click="$router.push(m.path)">
+            <template v-if="m.badge">
+              <v-badge color="secondary" v-bind="m.badge">{{ m.title }}</v-badge> 
+            </template>
+            <template v-else>
+              {{ m.title }}
+            </template>
           </v-tab>
-          <div class="d-none d-sm-inline-block">
+          <div>
             <v-btn v-for="ch in social" :key="`gnb-intab-sns.${ch.channel}`"
               :href="ch.href" :title="ch.channel" :alt="`ch.channel 링크`"
               icon color="accent" target="_blank">
                 <v-icon>{{ch.icon}}</v-icon>
             </v-btn>
           </div>
-          <v-menu offset-y>
-            <template #activator="{ on }">
-              <v-btn icon color="accent" v-on="on" class="d-inline-block d-sm-none"><v-icon>mdi-dots-vertical</v-icon></v-btn>
-            </template>
-            <v-list dense>
-              <v-list-item v-for="ch in social" :key="`gnb-menu-sns.${ch.channel}`"
-                :href="ch.href" :title="ch.channel" :alt="`ch.channel 링크`"
-                icon color="accent" target="_blank">
-                  <v-list-item-avatar xs>
-                    <v-icon color="primary">{{ch.icon}}</v-icon>
-                  </v-list-item-avatar>
-              </v-list-item>
-            </v-list>
-          </v-menu>
         </v-tabs>
       </v-toolbar-items>
-
+      <v-app-bar-nav-icon class="d-inline-block d-sm-none" @click="show_drawer = !show_drawer"/>
     </v-app-bar>
+    
 
     <!-- main -->
     <v-main>
@@ -63,9 +87,16 @@
 </template>
 
 <script>
-import logoImage from '@/assets/logo.svg'
+import logo_vector from '@/assets/logo.svg'
+import logo_raster from '@/assets/logo.png'
 import Router from '@/plugins/router'
 import channels from '@/channels'
+
+const menu = [
+  {path: '/', title: '취운화'}, 
+  {path: '/inquiry', title: '주문/문의'},
+  {path: '/class', title: '수업', badge: {icon: 'mdi-exclamation'} },
+]
 
 export default {
   name: 'App',
@@ -77,8 +108,12 @@ export default {
   data() {
     return {
       routes: Router.Routes.filter((rt) => rt.routeTitle),
-      logoImage,
+      logo_vector,
+      logo_raster,
       social: channels,
+      show_drawer: false,
+      menu,
+
     }
   }
 }
