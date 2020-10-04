@@ -54,7 +54,7 @@
               </v-expansion-panel>
 
               <v-expansion-panel>
-                <v-expansion-panel-header>부케는 종이포장 없이 박스로 포장합니다</v-expansion-panel-header>
+                <v-expansion-panel-header>부케는 종이포장 없이 박스에 담아 드립니다</v-expansion-panel-header>
                 <v-expansion-panel-content>
                   <v-row>
                     <v-col>
@@ -65,7 +65,7 @@
               </v-expansion-panel>
 
               <v-expansion-panel>
-                <v-expansion-panel-header>&lt;꽃 관리&gt; &lt;꽃 이름&gt; 카드가 동봉됩니다.</v-expansion-panel-header>
+                <v-expansion-panel-header>&lt;꽃 관리&gt; &lt;꽃 이름&gt; 카드가 동봉됩니다</v-expansion-panel-header>
                 <v-expansion-panel-content>
                   <v-row>
                     <v-col><v-img :src="guide_images.third" /></v-col>
