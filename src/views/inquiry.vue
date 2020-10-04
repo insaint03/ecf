@@ -44,7 +44,7 @@
           <v-card-text>
             <v-expansion-panels popout flat mandatory>
               <v-expansion-panel>
-                <v-expansion-panel-header>주문하신 꽃에 맞게 포장되어 배달됩니다</v-expansion-panel-header>
+                <v-expansion-panel-header>주문하신 꽃에 맞게 포장되어 배송됩니다</v-expansion-panel-header>
                 <v-expansion-panel-content>
                   <v-row>
                     <v-col cols="6"><v-img :src="guide_images.first.left" /></v-col>
