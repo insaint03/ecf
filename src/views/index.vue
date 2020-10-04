@@ -3,14 +3,21 @@
     <!-- grid gallery -->
     <v-row>
       <v-col>
-        <v-card elevation="1">
+        <v-card elevation="0">
           <v-item-group>
             <v-row class="mx-auto mx-2">
-              <template v-for="(img,ii) in images">
-                <v-col cols="12" sm="6" md="4" lg="3" xl="2" :key="`gallery-img.${ii}`">
-                  <v-img :src="img.asset" :title="img.desc"
-                    @mouseover="hover_image=img"
-                    @click="selected_image=img" />
+              <template v-if="0<gallery.length">
+                <template v-for="(img,ii) in gallery">
+                  <v-col cols="12" sm="6" md="4" lg="3" xl="2" :key="`gallery-img.${ii}`">
+                    <v-img :src="img.asset" :title="img.desc"
+                      @mouseover="hover_image=img"
+                      @click="selected_image=img" />
+                  </v-col>
+                </template>
+              </template>
+              <template v-else>
+                <v-col cols="12" sm="6" md="4" lg="3" xl="2" class="d-flex justify-self-center">
+                  <h3>선택한 조건의 이미지가 없습니다</h3>
                 </v-col>
               </template>
             </v-row>
@@ -21,7 +28,7 @@
             <v-expansion-panels mandatory accordion flat multiple>
               <v-expansion-panel v-for="g in tags" :key="`exp-tag.${g.grp}`" flat>
                 <v-expansion-panel-header>
-                  <span>
+                  <span color="primary" class="font-subtitle">
                     {{ g.grp }} 
                   </span>
                   <span v-if="g.selected" align="center" justify="center">
@@ -35,6 +42,7 @@
                 <v-expansion-panel-content>
                   <v-chip-group>
                     <v-chip v-for="tg in g.tags" :key="`exp-tag.${g.grp}-${tg.ko}`" 
+                    :disabled="!enable_tag(tg)"
                     :color="`${g.selected == tg ? 'secondary' : 'default' }`" :title="tg.en" @click="toggle_tag(g,tg)">
                       {{ tg.ko }}
                     </v-chip>
@@ -47,20 +55,27 @@
       </v-col>
     </v-row>
 
+    <v-divider />
+
     <!-- about 취운화 -->
     <v-row>
       <v-col>
-        <v-card elevation="1">
+        <v-card elevation="0">
           <v-card-text>
             <v-row class="mx-auto mx-2"> 
               <v-col cols="12" md="6" lg="4">
-                <img :src="logo" width="69%" />
+                <img :src="logo" width="60%" style="max-width: 256px;" />
               </v-col>
               <v-col cols="12" md="6" lg="8">
-                <h2 class="font-title" color="accent">꽃과 식물로 크고 작은 공간을 구성합니다</h2>
-                <h4 color="primary" align="right"> - 취운 / 플로리스트</h4>
-                <div align="left" justify="center">
-                  
+                <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%;">
+                  <h2 class="font-title" color="primary" style="width: 100%; text-align: left; line-height: 1.5em;">꽃과 풀 열매로<br />크고 작은 공간을 구성합니다</h2>
+                  <p>&nbsp;</p>
+                  <div style="width: 100%; text-align: left;" class="font-subtitle">
+                    <p style="width: 80%; margin-right: auto; word-break: word;">
+                      푸른빛 구름이라는 뜻을 지닌 <span style="color: primary; font-weight: 900;">'취운'</span>은 저의 오랜 이름입니다.
+                    푸르게 빛나다 자연스럽게 흩어지는 구름처럼,
+                    피어나고 사라지는 꽃들의 가장 아름다운 때를 전해드리고 싶습니다</p>
+                  </div>
                 </div>
               </v-col>
             </v-row>
@@ -95,52 +110,40 @@
 <script>
 import gallerySettings from '@/assets/gallery/gallery'
 import logo_raster from '@/assets/logo.512.png'
-
-const dummy_tag_group = [
-  {grp:'형태', tags: [
-    {ko: '묶은 꽃', en: 'Hand-tied'}, 
-    {ko: '꽂은 꽃', en: 'Vase/Pieces'}, 
-    {ko: '담은 꽃', en: 'Box/Basket'}, 
-    {ko: '공간 꽃', en: 'Space Deco'},
-  ],},
-  {grp:'시즌', tags: [
-    {ko: '봄', en: 'Spring'},
-    {ko: '여름', en: 'Summer'},
-    {ko: '가을', en: 'Fall'},
-    {ko: '겨울', en: 'Winter'}
-  ],},
-  {grp:'테마', tags: [
-    {ko: '결혼', en: 'Wedding'},
-    {ko: '시작', en: 'Beginning'},
-    {ko: '고백', en: 'Propose'},
-    {ko: '기념', en: 'Celebrate'},
-    {ko: '선물', en: 'Gift'},
-    {ko: '축하', en: 'Congraturate'},
-    {ko: '감사', en: 'Thanks'},
-    {ko: '위로', en: 'Encourage'},
-    {ko: '기원', en: 'Wish'},
-  ],},
-  {grp:'받는이', tags: [
-    {ko: '연인', en: 'Love'},
-    {ko: '부모', en: 'Parents'},
-    {ko: '가족', en: 'Family'},
-    {ko: '친지', en: 'Relative'},
-    {ko: '친구', en: 'Friend'},
-    {ko: '선생님', en: 'Teacher'},
-    {ko: '동료', en: 'Colleague'},
-  ]},
-]
+const galleryMax = 24;
 
 export default {
   path: '/',
   name: 'index',
   computed: {
     show_image_dialog: {
-      get() { return this.selected_image != null },
+      get() { return false; },
       set(v) { if(!v) this.selected_image = null },
-    }
+    },
+    selected_tags() {
+      return this.tags.map((grp)=>grp.selected)
+        .filter((tag)=>tag!=null);
+    },
+    filtered_images() {
+      let basis = Object.assign([],this.images);
+      window.console.log(this.selected_tags);
+
+      if(0<this.selected_tags.length) {
+        basis = basis.filter((img)=>
+            this.selected_tags.reduce((g,t)=> g && img.tags.includes(t.ko), true))
+      }
+      return basis.sort(()=>Math.random()-.5);
+    },
+    gallery() {
+      return this.filtered_images
+        .slice(0, galleryMax);
+    },
   },
   methods: {
+    enable_tag(tag) {
+      return this.filtered_images
+        .reduce((g,im)=>g || im.tags.includes(tag.ko), false);
+    },
     toggle_tag(grp, tag) {
       // toggle
       if(grp.selected == tag) {
@@ -149,15 +152,14 @@ export default {
         grp.selected = tag;
       }
       // update binding
-      this.tags = Object.assign({}, this.tags);
+      this.tags = Object.assign([], this.tags);
     }
   },
   data() {
     return {
-      selected_tags: {},
       selected_image: null,
       hover_image: null,
-      tags: dummy_tag_group,
+      tags: Object.assign([],gallerySettings.tags),
       images: gallerySettings.images,
       logo: logo_raster,
     }

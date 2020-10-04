@@ -4,6 +4,6 @@ import InquiryScreen from './inquiry'
 
 export default [
     IndexScreen,
-    ClassScreen,
     InquiryScreen,
+    ClassScreen,
 ]

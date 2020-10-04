@@ -8,7 +8,7 @@
       <v-list>
         <v-list-item-group>
           <v-list-item v-for="m in menu" :key="`gnb.nav-${m.path}`" @click="$router.push(m.path)"
-            :color="`${ m.path == $route.path ? 'accent' : 'grey' }`">
+            class="font-subtitle" :color="`${ m.path == $route.path ? 'primary' : 'secondary' }`">
             <template v-if="m.badge">
                 <v-badge color="secondary" v-bind="m.badge">{{ m.title }}</v-badge> 
               </template>
@@ -23,7 +23,7 @@
             <v-list-item-content>
               <div class="d-flex justify-space-around" align="center">
                 <v-btn v-for="s in social" :key="`gnb.nav-social.${s.channel}`" :href="s.href" :title="s.channel" 
-                  icon fab>
+                  icon fab color="primary">
                   <v-icon>{{ s.icon }}</v-icon>
                 </v-btn>
               </div>
@@ -36,7 +36,7 @@
 
     <!-- appbar -->
     <v-app-bar app flat prominent shrink-on-scroll style="background-color: white;" class="font-title">
-      <img :src="logo_raster" title="취운화 로고;마름모" alt="취운화" style="height: 90%; cursor: pointer;" class="mv-auto" @click="$router.push('/')" />
+      <img :src="logo_raster" title="취운화 로고;마름모" alt="취운화" style="" class="mv-auto" @click="$router.push('/')" />
 
       <v-spacer />
 
@@ -75,7 +75,7 @@
         <v-col class="grey--text">
           <p>
             취운화; Emerald Cloud Flower<br />
-            사업자 등록번호 (대표 김아름)
+            사업자 등록번호 679-99-00718 (대표 김아름)
           </p>
           <p>
            &copy;취운화 All Rights reserved
@@ -88,14 +88,14 @@
 
 <script>
 import logo_vector from '@/assets/logo.svg'
-import logo_raster from '@/assets/logo.png'
+import logo_raster from '@/assets/logo.256.png'
 import Router from '@/plugins/router'
 import channels from '@/channels'
 
 const menu = [
   {path: '/', title: '취운화'}, 
   {path: '/inquiry', title: '주문/문의'},
-  {path: '/class', title: '수업', badge: {icon: 'mdi-exclamation'} },
+  // {path: '/class', title: '수업', badge: {icon: 'mdi-exclamation'} },
 ]
 
 export default {
@@ -130,6 +130,22 @@ export default {
 
 #app .font-title {
   font-family: '국립박물관문화재단클래식B', Avenir, serif;
+}
+
+#app .font-subtitle {
+  font-family: '국립박물관문화재단클래식L', Avenir, serif;
+}
+
+#app header.v-app-bar img {
+  cursor: pointer;
+  height: 70%;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+#app header.v-app-bar:not(.v-app-bar--is-scrolled) img {
+  margin-top: 24px;
+  margin-left: 32px;
 }
 
 </style>
