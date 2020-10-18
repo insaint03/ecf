@@ -70,8 +70,8 @@
               </v-col>
               <v-col cols="12" v-if="is_iphone()">
                 <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%;">
-                  <h2 class="font-title" color="primary" style="width: 100%; max-width: 90vw; text-align: center; line-height: 1.5em;">
-                    꽃과 풀 열매로 <br />크고 작은 공간을 구성합니다
+                  <h2 class="font-title" color="primary" style="width: 100%; max-width: 96vw; text-align: center; line-height: 1.5em; font-size: 20px;">
+                    꽃과 풀 열매로<br />크고 작은 공간을 구성합니다
                   </h2>
                   <p>&nbsp;</p>
                   <div style="width: 100%; max-width: 95vw; text-align: center;" class="font-subtitle">
