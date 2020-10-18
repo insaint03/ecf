@@ -4,7 +4,7 @@
     <v-row>
       <v-col>
         <v-card elevation="0">
-          <v-item-group class="imgframe" style="height: 150vh; overflow-y: auto;">
+          <v-item-group class="imgframe" style="min-height: 60vh; max-height: 150vh; overflow-y: auto;">
             <v-row class="mx-auto mx-2">
               <template v-if="0<gallery.length">
                 <template v-for="(img,ii) in gallery">
