@@ -164,6 +164,14 @@ const galleryMax = 24;
 export default {
   path: '/',
   name: 'index',
+  watch: {
+    selected_image() {
+      if(this.selected_image!=null)
+        window.dataLayer.push(Object.assign({}, this.selected_image, {event: 'ecf.image.pop'}));
+      else
+        window.dataLayer.push({event: 'ecf.image.dispose'});
+    }
+  },
   computed: {
     show_image_dialog: {
       get() { return this.selected_image && true; },
@@ -196,9 +204,11 @@ export default {
       // toggle
       if(grp.selected && grp.selected.includes(tag)) {
         grp.selected.splice(grp.selected.indexOf(tag), 1);
+        window.dataLayer.push({event: 'ecf.tag.free', group: grp.grp, tag: tag.ko});
       } else {
         if(!grp.selected) grp.selected = [];
         grp.selected.push(tag);
+        window.dataLayer.push({event: 'ecf.tag.set', group: grp.grp, tag: tag.ko});
       }
       // update binding
       this.tags = Object.assign([], this.tags);
