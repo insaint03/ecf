@@ -41,7 +41,7 @@
       <v-spacer />
 
       <v-toolbar-items class="d-none d-sm-inline-block">
-        <v-tabs color="primary">
+        <v-tabs color="primary" :value="tab_index">
           <v-tab v-for="m in menu" :key="`gnb-${m.path}`" @click="$router.push(m.path)">
             <template v-if="m.badge">
               <v-badge color="secondary" v-bind="m.badge">{{ m.title }}</v-badge> 
@@ -105,6 +105,11 @@ export default {
       window.open(sns.href, '_blank');
     }
   },
+  computed: {
+    tab_index() {
+      return this.menu.map((m)=>m.path).indexOf(this.$router.currentRoute.path) || 0;
+    }
+  },
   data() {
     return {
       routes: Router.Routes.filter((rt) => rt.routeTitle),
@@ -146,6 +151,27 @@ export default {
 #app header.v-app-bar:not(.v-app-bar--is-scrolled) img {
   margin-top: 24px;
   margin-left: 32px;
+}
+
+::-webkit-scrollbar {
+  width: 2px;
+  
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #052107;
+  border-radius: 2px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #052107;
 }
 
 </style>

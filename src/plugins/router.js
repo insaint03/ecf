@@ -14,6 +14,7 @@ let router =  new VueRouter({
         }
     }),
 });
+
 router.afterEach((to, from)=>{
     window.dataLayer.push({
         event: 'route.move',

@@ -58,7 +58,7 @@
                 <v-expansion-panel-content>
                   <v-row>
                     <v-col>
-                      <v-img :src="guide_images.second" />
+                      <v-img :src="guide_images.second" style="min-width: 300px; min-height: 300px;" />
                     </v-col>
                   </v-row>
                 </v-expansion-panel-content>
@@ -68,7 +68,7 @@
                 <v-expansion-panel-header>&lt;꽃 관리&gt; &lt;꽃 이름&gt; 카드가 동봉됩니다</v-expansion-panel-header>
                 <v-expansion-panel-content>
                   <v-row>
-                    <v-col><v-img :src="guide_images.third" /></v-col>
+                    <v-col><v-img :src="guide_images.third" style="min-width: 300px; min-height: 300px;" /></v-col>
                   </v-row>
                 </v-expansion-panel-content>
               </v-expansion-panel>
@@ -92,7 +92,7 @@
                 <v-expansion-panel-header>꽃 주문은 어떻게 하나요?</v-expansion-panel-header>
                 <v-expansion-panel-content align="left">
                   <ul>
-                    <li>꽃이 필요하신 날짜로부터 3-7일 전에 카카오톡으로 <a target="blank" href="https://pf.kakao.com/_KYqDT/chat">연락 주세요</a>. 받는 분이 좋아하시는 색감, 취향 그리고 원하시는 가격대 등을 미리 말씀 주시면 더욱 편하게 주문하실 수 있습니다</li>
+                    <li>꽃이 필요하신 날짜로부터 3-7일 전에 카카오톡으로 <a target="blank" href="https://pf.kakao.com/_KYqDT/chat">연락 주세요</a>. 받는 분이 좋아하시는 색감, 취향 그리고 원하시는 가격대 등을 미리 말씀 주시면 더욱 편하게 주문하실 수 있습니다.</li>
                     <li>웨딩 꽃은 최소 수 주, 시간 여유를 두고 연락 주시는 편이 좋습니다. 원하시는 색감, 드레스와 결혼식장과 같은 주변 정보를 알려 주시면 더욱 잘 어울리는 조합을 찾기 수월합니다.</li>
                     <li>공간 세팅, 광고 촬영 등 프로젝트성 의뢰는 이메일 <a target="blank" href="mailto:emerald.cloud.flower@gmail.com">emerald.cloud.flower@gmail.com</a> 보내 주시면 빠른 회신 드리겠습니다.</li>
                   </ul>
@@ -168,3 +168,11 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+ul li {
+  margin-bottom: 1.5em;
+  white-space: normal;
+  word-wrap: break-word;
+}
+</style>
