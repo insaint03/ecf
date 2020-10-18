@@ -70,12 +70,12 @@
               </v-col>
               <v-col cols="12" md="6" lg="8">
                 <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%;">
-                  <h2 class="font-title" color="primary" style="width: 100%; text-align: center; line-height: 1.5em;">
+                  <h2 class="font-title" color="primary" style="width: 100%; max-width: 100vw; text-align: center; line-height: 1.5em;">
                     <span class="break-hint">꽃과 풀 열매로</span> 
                     <span class="break-hint"> 크고 작은 공간을 구성합니다</span>
                   </h2>
                   <p>&nbsp;</p>
-                  <div style="width: 100%; text-align: center;" class="font-subtitle">
+                  <div style="width: 100%; max-width: 100vw; text-align: center;" class="font-subtitle">
                     <p>
                       <span class="break-hint">푸른빛 구름이라는 뜻을 지닌 <span style="color: primary; font-weight: 900;">'취운'</span>은 저의 오랜 이름입니다.</span><br />
                       <span class="break-hint"> 푸르게 빛나다 자연스럽게 흩어지는 구름처럼,</span>
