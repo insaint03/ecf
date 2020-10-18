@@ -64,43 +64,43 @@
       <v-col>
         <v-card elevation="0">
           <v-card-text>
-            <v-row class="mx-auto mx-2" v-if="is_iphone()">
-              <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%;">
-                <h2 class="font-title" color="primary" style="width: 100%; max-width: 90vw; text-align: center; line-height: 1.5em;">
-                  꽃과 풀 열매로 <br />크고 작은 공간을 구성합니다
-                </h2>
-                <p>&nbsp;</p>
-                <div style="width: 100%; max-width: 95vw; text-align: center;" class="font-subtitle">
-                  <p>
-                    푸른빛 구름이라는 뜻을 지닌 <br/>
-                    <span style="color: primary; font-weight: 900;">'취운'</span>은 저의 오랜 이름입니다.<br/>
-                    푸르게 빛나다 자연스럽게 흩어지는 구름처럼,<br/>
-                    피어나고 사라지는 꽃들의<br/>
-                    가장 아름다운 때를 전해드리고 싶습니다<br/>
-                  </p>
-                </div>
-              </div>
-            </v-row>
-            <v-row class="mx-auto mx-2" v-else-if="is_ipad()">
-              <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%;">
-                <h2 class="font-title" color="primary" style="width: 100%; max-width: 90vw; text-align: center; line-height: 1.5em;">
-                  꽃과 풀 열매로 크고 작은 공간을 구성합니다
-                </h2>
-                <p>&nbsp;</p>
-                <div style="width: 100%; max-width: 95vw; text-align: center;" class="font-subtitle">
-                  <p>
-                    푸른빛 구름이라는 뜻을 지닌 <span style="color: primary; font-weight: 900;">'취운'</span>은 저의 오랜 이름입니다.<br/>
-                    푸르게 빛나다 자연스럽게 흩어지는 구름처럼,<br/>
-                    피어나고 사라지는 꽃들의 가장 아름다운 때를 전해드리고 싶습니다<br/>
-                  </p>
-                </div>
-              </div>
-            </v-row>
-            <v-row class="mx-auto mx-2" v-else>
+            <v-row class="mx-auto mx-2">
               <v-col cols="12" md="6" lg="4">
                 <img :src="logo" width="60%" style="max-width: 256px;" />
               </v-col>
-              <v-col cols="12" md="6" lg="8">
+              <v-col cols="12" v-if="is_iphone()">
+                <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%;">
+                  <h2 class="font-title" color="primary" style="width: 100%; max-width: 90vw; text-align: center; line-height: 1.5em;">
+                    꽃과 풀 열매로 <br />크고 작은 공간을 구성합니다
+                  </h2>
+                  <p>&nbsp;</p>
+                  <div style="width: 100%; max-width: 95vw; text-align: center;" class="font-subtitle">
+                    <p>
+                      푸른빛 구름이라는 뜻을 지닌 <br/>
+                      <span style="color: primary; font-weight: 900;">'취운'</span>은 저의 오랜 이름입니다.<br/>
+                      푸르게 빛나다 자연스럽게 흩어지는 구름처럼,<br/>
+                      피어나고 사라지는 꽃들의<br/>
+                      가장 아름다운 때를 전해드리고 싶습니다<br/>
+                    </p>
+                  </div>
+                </div>
+              </v-col>
+              <v-col cols="12" md="6" lg="8" v-else-if="is_ipad()">
+                <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%;">
+                  <h2 class="font-title" color="primary" style="width: 100%; max-width: 90vw; text-align: center; line-height: 1.5em;">
+                    꽃과 풀 열매로 크고 작은 공간을 구성합니다
+                  </h2>
+                  <p>&nbsp;</p>
+                  <div style="width: 100%; max-width: 95vw; text-align: center;" class="font-subtitle">
+                    <p>
+                      푸른빛 구름이라는 뜻을 지닌 <span style="color: primary; font-weight: 900;">'취운'</span>은 저의 오랜 이름입니다.<br/>
+                      푸르게 빛나다 자연스럽게 흩어지는 구름처럼,<br/>
+                      피어나고 사라지는 꽃들의 가장 아름다운 때를 전해드리고 싶습니다<br/>
+                    </p>
+                  </div>
+                </div>
+              </v-col>
+              <v-col cols="12" md="6" lg="8"  v-else>
                 <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%;">
                   <h2 class="font-title" color="primary" style="width: 100%; max-width: 90vw; text-align: center; line-height: 1.5em;">
                     <span class="break-hint">꽃과 풀 열매로</span> 
