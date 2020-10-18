@@ -95,12 +95,12 @@
     </v-row>
     <v-dialog v-if="show_image_dialog" v-model="show_image_dialog" fullscreen>
       <v-card>
-        <v-toolbar flat dense>
+        <v-toolbar flat>
           <v-toolbar-title>
           </v-toolbar-title>
           <v-spacer />
           <v-toolbar-items>
-            <v-chip color="primary" v-for="tg in selected_image.tags" :key="`pop-image.${tg}`" class="mx-1 my-auto">{{ tg }}</v-chip>
+            <v-chip color="secondary" v-for="tg in selected_image.tags" :key="`pop-image.${tg}`" class="mx-1 my-auto" style="opacity: .2">{{ tg }}</v-chip>
           </v-toolbar-items>
           <v-spacer />
           <v-toolbar-items>
