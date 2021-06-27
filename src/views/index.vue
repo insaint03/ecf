@@ -157,7 +157,7 @@
 </template>
  
 <script>
-import gallerySettings from '@/assets/gallery/gallery'
+import gallerySettings from '@/assets/gallery'
 import logo_raster from '@/assets/logo.512.png'
 const galleryMax = 24;
 
