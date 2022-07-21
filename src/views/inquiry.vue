@@ -102,7 +102,7 @@
               <v-expansion-panel>
                 <v-expansion-panel-header>꽃은 어떻게 받아 볼 수 있나요?</v-expansion-panel-header>
                 <v-expansion-panel-content align="left">
-                  작업실 (경기도 성남시 분당구) 픽업이 기본이나, 픽업이 어려우신 분들은 배송이 가능합니다. 성남지역 15,000원 / 그 밖의 서울, 경기 수도권 지역은 20,000원 내외의 배송비가 발생합니다. 상품 특성상 택배 배송은 불가능하며, 퀵배송만 가능합니다.
+                  작업실 (서울시 서초구 양재동) 픽업과 퀵 배송을 선택하실 수 있습니다. 퀵 비용은 거리에 따라 책정되며, 별도 부담입니다.
                 </v-expansion-panel-content>
               </v-expansion-panel>
 
@@ -117,13 +117,6 @@
                 <v-expansion-panel-header>주문 제작만 가능한가요?</v-expansion-panel-header>
                 <v-expansion-panel-content align="left">
                   네, 현재로서는 주문 제작만으로 운영하고 있습니다.
-                </v-expansion-panel-content>
-              </v-expansion-panel>
-
-              <v-expansion-panel>
-                <v-expansion-panel-header>수업은 안 하시나요?</v-expansion-panel-header>
-                <v-expansion-panel-content align="left">
-                  당장은 아니지만, 취운화 만의 색깔이 담긴 커리큘럼이 정리되면 수업을 열 계획입니다.
                 </v-expansion-panel-content>
               </v-expansion-panel>
 
