@@ -56,6 +56,9 @@
               icon color="accent" target="_blank">
                 <v-icon>{{ch.icon}}</v-icon>
             </v-btn>
+            <v-btn href="https://naver.me/xPQNDayW" title="찾아오시는 길" alt="주소 - 서울특별시 서초구 논현로 5길 17 (양재동, 금산빌딩) 1F 취운화" target="_blank" icon color="accent">
+              <v-icon>mdi-map-marker-outline</v-icon>
+            </v-btn>
           </div>
         </v-tabs>
       </v-toolbar-items>
@@ -75,7 +78,8 @@
         <v-col class="grey--text">
           <p>
             취운화; Emerald Cloud Flower<br />
-            사업자 등록번호 679-99-00718 (대표 김아름)
+            사업자 등록번호 679-99-00718 (대표 김아름)<br />
+            <a href="https://naver.me/xPQNDayW" target="_newwin" style="color: #9e9e9e; text-decoration: none;">서울특별시 서초구 논현로 5길 17 (양재동, 금산빌딩) 1F 취운화  / 우.06791</a>
           </p>
           <p>
            &copy;취운화 All Rights reserved
@@ -95,7 +99,7 @@ import channels from '@/channels'
 const menu = [
   {path: '/', title: '취운화'}, 
   {path: '/inquiry', title: '주문/문의'},
-  // {path: '/class', title: '수업', badge: {icon: 'mdi-exclamation'} },
+  {path: '/class', title: '수업', badge: {icon: 'mdi-exclamation'} },
 ]
 
 export default {
