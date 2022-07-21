@@ -26,6 +26,9 @@
                   icon fab color="primary">
                   <v-icon>{{ s.icon }}</v-icon>
                 </v-btn>
+                <v-btn href="https://naver.me/xPQNDayW" title="찾아오시는 길" alt="주소 - 서울특별시 서초구 논현로 5길 17 (양재동, 금산빌딩) 1F 취운화" target="_blank" icon fab color="primary">
+                  <v-icon>mdi-map-marker-outline</v-icon>
+                </v-btn>
               </div>
             </v-list-item-content>
           </v-list-item>

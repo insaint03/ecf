@@ -27,6 +27,11 @@
                 <v-list-item-avatar><v-icon color="primary">mdi-chat</v-icon></v-list-item-avatar>
                 <v-list-item-title>카카오톡 채널 문의</v-list-item-title>
               </v-list-item>
+              <v-list-item title="찾아 오시는 길"
+                target="_blank" href="https://naver.me/xPQNDayW">
+                <v-list-item-avatar><v-icon color="primary">mdi-map-marker-outline</v-icon></v-list-item-avatar>
+                <v-list-item-title>찾아 오시는 길</v-list-item-title>
+              </v-list-item>
             </v-list>
           </v-card-text>
         </v-card>

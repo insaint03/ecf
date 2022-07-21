@@ -4,7 +4,7 @@
       <v-col>
         <v-card elevation="1">
           <v-toolbar dark color="primary">
-            <v-toolbar-title>취운화 꽃수업</v-toolbar-title>
+            <v-toolbar-title class="font-subtitle">취운화 꽃수업</v-toolbar-title>
             <v-spacer />
             <v-toolbar-items>
               <v-icon>mdi-calendar</v-icon>
