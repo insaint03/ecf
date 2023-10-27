@@ -157,13 +157,23 @@
 </template>
  
 <script>
-import gallerySettings from '@/assets/gallery'
-import logo_raster from '@/assets/logo.512.png'
 const galleryMax = 24;
+import data from '@/data'
 
 export default {
   path: '/',
   name: 'index',
+  created() {
+    (async ()=>{
+      let gallery = await data.gallery;
+      let tags = (await data.settings).gallery_tags;
+      this.images = Object.entries(gallery)
+        .map((asset, it)=>Object.assign(it, {asset,}))
+        .sort(()=>Math.random() -.5)
+        .slice(0, galleryMax);
+
+    })();
+  },
   watch: {
     selected_image() {
       if(this.selected_image!=null)
@@ -224,9 +234,9 @@ export default {
     return {
       selected_image: null,
       hover_image: null,
-      tags: Object.assign([],gallerySettings.tags),
-      images: gallerySettings.images,
-      logo: logo_raster,
+      tags: Object.assign([]),
+      images: [],
+      logo: null,
     }
   }
 }

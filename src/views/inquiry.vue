@@ -52,8 +52,6 @@
                 <v-expansion-panel-header>주문하신 꽃에 맞게 포장되어 배송됩니다</v-expansion-panel-header>
                 <v-expansion-panel-content>
                   <v-row>
-                    <v-col cols="6"><v-img :src="guide_images.first.left" /></v-col>
-                    <v-col cols="6"><v-img :src="guide_images.first.right" /></v-col>
                   </v-row>
                 </v-expansion-panel-content>
               </v-expansion-panel>
@@ -63,7 +61,6 @@
                 <v-expansion-panel-content>
                   <v-row>
                     <v-col>
-                      <v-img :src="guide_images.second" style="min-width: 300px; min-height: 300px;" />
                     </v-col>
                   </v-row>
                 </v-expansion-panel-content>
@@ -73,7 +70,6 @@
                 <v-expansion-panel-header>&lt;꽃 관리&gt; &lt;꽃 이름&gt; 카드가 동봉됩니다</v-expansion-panel-header>
                 <v-expansion-panel-content>
                   <v-row>
-                    <v-col><v-img :src="guide_images.third" style="min-width: 300px; min-height: 300px;" /></v-col>
                   </v-row>
                 </v-expansion-panel-content>
               </v-expansion-panel>
@@ -134,14 +130,10 @@
 </template>
  
 <script>
-import logo_raster from '@/assets/logo.png'
-import channels from '@/channels'
-import questionares from '@/faq'
+// import logo_raster from '@/assets/logo.png'
+// import channels from '@/channels'
+// import questionares from '@/faq'
 
-import guide01Left from '@/assets/guide.01.01.jpg'
-import guide01Right from '@/assets/guide.01.02.jpg'
-import guide02 from '@/assets/guide.02.01.jpg'
-import guide03 from '@/assets/guide.03.01.jpg'
 
 export default {
     path: 'inquiry',
@@ -149,19 +141,16 @@ export default {
     routeTitle: '문의',
     data() {
       return {
-        socials: channels,
-        logo_image: logo_raster,
-        faq: questionares,
-        guide_images: {
-          first: {
-            left: guide01Left, 
-            right: guide01Right,
-          },
-          second: guide02,
-          third: guide03,
-
-
-        }
+        socials: {},
+        faq: [],
+        // guide_images: {
+        //   first: {
+        //     left: guide01Left, 
+        //     right: guide01Right,
+        //   },
+        //   second: guide02,
+        //   third: guide03,
+        // }
       }
     }
 }

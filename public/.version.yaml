@@ -1,0 +1,173 @@
+# 브랜드 기본 정보
+brand:
+  # 업체명
+  title: 취운화
+  title_en: Emerald Cloud Flower
+  title_cn: 翠雲花
+  # 대표자
+  represent: 김아름
+  # 사업자 등록번호
+  registration: 679-99-00718
+  # 주소
+  address: 서울특별시 서초구 논현로 5길 17 (양재동, 금산빌딩) 1F
+  zipcode: 06791
+  address_en: Nonhyun-ro 5 gil 17 (Geumsan Building) 1F, Seocho-gu, Seoul, South Korea
+  # 연락처
+  contacts: 
+    - title: 카카오톡 채널 문의
+      href: https://pf.kakao.com/_KYqDT/chat
+      icon: mdi-chat
+    - title: 찾아 오시는 길
+      href: https://naver.me/xPQNDayW
+      icon: mdi-map-marker
+  # 오는 길
+  venue: https://naver.me/xPQNDayW
+  venue_en: https://maps.app.goo.gl/8DqdAc7vLP6xBd1GA
+  # 로고
+  logo: 'assets/logo.512.png'
+# 연결 채널
+channels:
+  # 인스타그램
+  - title: instagram
+    href: https://www.instagram.com/emerald_cloud_flower/
+    icon: mdi-instagram
+  # 트위터
+  - title: twitter
+    href: https://twitter.com/EmeraldCloud_F
+    icon: 'mdi-twitter'
+  # 카카오 채널
+  - title: Kakao
+    href: https://pf.kakao.com/_KYqDT
+    icon: 'mdi-chat'
+# 정적 컨텐츠
+static:
+  # 인덱스 페이지 브랜딩
+  index:
+    branding:
+      # 일반 데스크톱 사이즈
+      default:
+        header: 꽃과 풀 열매로 크고 작은 공간을 구성합니다
+        content: |
+          <span class="break-hint">푸른빛 구름이라는 뜻을 지닌</span>
+          <span class="break-hint"><span style="color: primary; font-weight: 900;">'취운'</span>은 저의 오랜 이름입니다.</span><br />
+          <span class="break-hint"> 푸르게 빛나다 자연스럽게 흩어지는 구름처럼,</span>
+          <span class="break-hint"> 피어나고 사라지는 꽃들의</span>
+          <span class="break-hint"> 가장 아름다운 때를 전해드리고 싶습니다</span>
+        props:
+          cols: 12
+          lg: 8
+          md: 6
+      # 패드/타블렛 사이즈
+      medium: # default 와 공통 속성 사용
+      # 모바일 스마트폰 사이즈
+      small:
+        header: 꽃과 풀 열매로<br />크고 작은 공간을 구성합니다
+        content: |
+          푸른빛 구름이라는 뜻을 지닌 <br/>
+          <span style="color: primary; font-weight: 900;">'취운'</span>은 저의 오랜 이름입니다.<br/>
+          푸르게 빛나다 자연스럽게 흩어지는 구름처럼,<br/>
+          피어나고 사라지는 꽃들의<br/>
+          가장 아름다운 때를 전해드리고 싶습니다<br/>
+        props:
+          cols: 12
+  # 주문/문의
+  inquiry:
+    guide:
+      - title: 주문하신 꽃에 맞게 포장되어 배송됩니다
+        content: |
+          <v-row>
+            <v-col cols="6"><v-img :src="guide_images.first.left" /></v-col>
+            <v-col cols="6"><v-img :src="guide_images.first.right" /></v-col>
+          </v-row>
+      - title: 부케는 종이포장 없이 박스에 담아 드립니다
+        content: |
+          <v-row>
+            <v-col>
+              <v-img :src="guide_images.second" style="min-width: 300px; min-height: 300px;" />
+            </v-col>
+          </v-row>
+      - title: &lt;꽃 관리&gt; &lt;꽃 이름&gt; 카드가 동봉됩니다
+        content: |
+          <v-row>
+            <v-col><v-img :src="guide_images.third" style="min-width: 300px; min-height: 300px;" /></v-col>
+          </v-row>
+    faq:
+      - title: 꽃 주문은 어떻게 하나요?
+        content: | 
+          <ul>
+            <li>꽃이 필요하신 날짜로부터 3-7일 전에 카카오톡으로 <a target="blank" href="https://pf.kakao.com/_KYqDT/chat">연락 주세요</a>. 받는 분이 좋아하시는 색감, 취향 그리고 원하시는 가격대 등을 미리 말씀 주시면 더욱 편하게 주문하실 수 있습니다.</li>
+            <li>웨딩 꽃은 최소 수 주, 시간 여유를 두고 연락 주시는 편이 좋습니다. 원하시는 색감, 드레스와 결혼식장과 같은 주변 정보를 알려 주시면 더욱 잘 어울리는 조합을 찾기 수월합니다.</li>
+            <li>공간 세팅, 광고 촬영 등 프로젝트성 의뢰는 이메일 <a target="blank" href="mailto:emerald.cloud.flower@gmail.com">emerald.cloud.flower@gmail.com</a> 보내 주시면 빠른 회신 드리겠습니다.</li>
+          </ul>
+      - title: 꽃은 어떻게 받아 볼 수 있나요?
+        content: |
+          작업실 (서울시 서초구 양재동) 픽업과 퀵 배송을 선택하실 수 있습니다. 퀵 비용은 거리에 따라 책정되며, 별도 부담입니다.
+      - title: 최소 주문 금액이 있나요?
+        content: | 
+          취운화의 꽃은 모두 주문 제작 방식이기 때문에 <b>7만원 이상</b>부터 주문이 가능합니다
+      - title: 주문 제작만 가능한가요?
+        content: | 
+          네, 현재로서는 주문 제작만으로 운영하고 있습니다.
+
+  # 수업 신청 카드섹션
+  classes:
+    - title: 심야취운화
+      desc: 심야, 원데이
+      tags:
+        - 야간
+        - 원데이
+      image: https://lh4.googleusercontent.com/-ksaG8pc5ckWGNIqVL1C_1_Jm8E6U6hXDIKA_XlH6galVBWapX7u6oZr8TLJzwzi1861tRmhicfYYDO0oA1d7pqdWb6X3TdfK7kURcuozxnKwfeWL-OmSka22Ld7wr8VVg=w1080
+      link: https://docs.google.com/forms/d/e/1FAIpQLSe8K8VaASjC06K-XzoHnyThwNtBD05n7dm6C3z52KA0T2I54Q/viewform?embedded=true
+    - title: 백주취운화
+      desc: 전문가 과정
+      tags:
+        - 전문가
+        - 주간
+      image: https://lh4.googleusercontent.com/-ksaG8pc5ckWGNIqVL1C_1_Jm8E6U6hXDIKA_XlH6galVBWapX7u6oZr8TLJzwzi1861tRmhicfYYDO0oA1d7pqdWb6X3TdfK7kURcuozxnKwfeWL-OmSka22Ld7wr8VVg=w1080
+      link: 
+# 메인 이미지 갤러리
+gallery_tags:
+  - group: 형태
+    items:
+      - ko: 묶은꽃
+        en: Hand-tied
+      - ko: 꽂은꽃
+        en: Vase/Pieces
+      - ko: 담은꽃
+        en: Box/Basket
+      - ko: 공간꽃
+        en: Space Dec
+  - group: 계절
+    items:
+      - ko: 1월
+        en: 'January'
+      - ko: 2월
+        en: 'Febuary'
+      - ko: 3월
+        en: 'March'
+      - ko: 4월
+        en: 'April'
+      - ko: 5월
+        en: 'May'
+      - ko: 6월
+        en: 'June'
+      - ko: 7월
+        en: 'July'
+      - ko: 8월
+        en: 'August'
+      - ko: 9월
+        en: 'September'
+      - ko: 10월
+        en: 'October'
+      - ko: 11월
+        en: 'November'
+      - ko: 12월
+        en: 'December'
+  - group: 주제
+    items:
+        - ko: 웨딩
+          en: 'Wedding'
+        - ko: 선물
+          en: 'Gift'
+        - ko: 프로젝트
+          en: 'Project'

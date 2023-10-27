@@ -10,4 +10,4 @@ new Vue({
   render: h => h(App),
   router: Router.Register(Vue),
   vuetify: Vuetify(Vue),
-}).$mount('#app')
+}).$mount('#app');

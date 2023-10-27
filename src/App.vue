@@ -2,7 +2,7 @@
   <v-app>
     <v-navigation-drawer class="d-block d-sm-none" v-model="show_drawer" fixed>
       <div align="center" justify="center">
-        <v-img :src="logo_raster" style="width: 128px; height: 128px; margin: 24px; cursor: pointer;" @click="$router.push('/')" />
+        <v-img src="images/logo.512.png" style="width: 128px; height: 128px; margin: 24px; cursor: pointer;" @click="$router.push('/')" />
       </div>
       <v-divider />
       <v-list>
@@ -22,7 +22,7 @@
           <v-list-item>
             <v-list-item-content>
               <div class="d-flex justify-space-around" align="center">
-                <v-btn v-for="s in social" :key="`gnb.nav-social.${s.channel}`" :href="s.href" :title="s.channel" 
+                <v-btn v-for="s in social" :key="`gnb.nav-social.${s.title}`" :href="s.href" :title="s.title" 
                   icon fab color="primary">
                   <v-icon>{{ s.icon }}</v-icon>
                 </v-btn>
@@ -39,7 +39,7 @@
 
     <!-- appbar -->
     <v-app-bar app flat prominent shrink-on-scroll style="background-color: white;" class="font-title">
-      <img :src="logo_raster" title="취운화 로고;마름모" alt="취운화" style="" class="mv-auto" @click="$router.push('/')" />
+      <img src="images/logo.svg" title="취운화 로고;마름모" alt="취운화" style="" class="mv-auto" @click="$router.push('/')" />
 
       <v-spacer />
 
@@ -54,12 +54,12 @@
             </template>
           </v-tab>
           <div>
-            <v-btn v-for="ch in social" :key="`gnb-intab-sns.${ch.channel}`"
-              :href="ch.href" :title="ch.channel" :alt="`ch.channel 링크`"
+            <v-btn v-for="ch,ci in social" :key="`gnb-intab-sns.${ci}`"
+              :href="ch.href" :title="ch.title" :alt="`${ch.title} 링크`"
               icon color="accent" target="_blank">
                 <v-icon>{{ch.icon}}</v-icon>
             </v-btn>
-            <v-btn href="https://naver.me/xPQNDayW" title="찾아오시는 길" alt="주소 - 서울특별시 서초구 논현로 5길 17 (양재동, 금산빌딩) 1F 취운화" target="_blank" icon color="accent">
+            <v-btn :href=brand.venue title="찾아오시는 길" :alt="`${brand.address} ${brand.title}`" target="_blank" icon color="accent">
               <v-icon>mdi-map-marker-outline</v-icon>
             </v-btn>
           </div>
@@ -80,12 +80,12 @@
       <v-row>
         <v-col class="grey--text">
           <p>
-            취운화; Emerald Cloud Flower<br />
-            사업자 등록번호 679-99-00718 (대표 김아름)<br />
-            <a href="https://naver.me/xPQNDayW" target="_newwin" style="color: #9e9e9e; text-decoration: none;">서울특별시 서초구 논현로 5길 17 (양재동, 금산빌딩) 1F 취운화  / 우.06791</a>
+            {{ brand.title }} / {{ brand.title_cn }} / {{ brand.title_en }}<br />
+            사업자 등록번호 {{ brand.registration }} (대표 {{ brand.represent }})<br />
+            <a :href=brand.venue target="_newwin" style="color: #9e9e9e; text-decoration: none;">{{ brand.address }} {{ brand.title }}  / 우.{{ brand.zipcode }}</a>
           </p>
           <p>
-           &copy;취운화 All Rights reserved
+           &copy;{{ brand.title }} All Rights reserved
           </p>
         </v-col>
       </v-row>
@@ -94,10 +94,9 @@
 </template>
 
 <script>
-import logo_vector from '@/assets/logo.svg'
-import logo_raster from '@/assets/logo.256.png'
 import Router from '@/plugins/router'
-import channels from '@/channels'
+// import channels from '@/channels'
+import data from '@/data'
 
 const menu = [
   {path: '/', title: '취운화'}, 
@@ -107,6 +106,15 @@ const menu = [
 
 export default {
   name: 'App',
+  created() {
+    (async ()=>{
+      let conf = await data.settings;
+      console.log(conf.channels);
+      this.social = conf.channels;
+      this.brand = conf.brand;
+      this.static = conf.static.index;
+    })();
+  },
   methods: {
     openChannel(sns) {
       window.open(sns.href, '_blank');
@@ -115,16 +123,16 @@ export default {
   computed: {
     tab_index() {
       return this.menu.map((m)=>m.path).indexOf(this.$router.currentRoute.path) || 0;
-    }
+    },
   },
   data() {
     return {
       routes: Router.Routes.filter((rt) => rt.routeTitle),
-      logo_vector,
-      logo_raster,
-      social: channels,
       show_drawer: false,
       menu,
+      social: [],
+      brand: {},
+      static: {},
 
     }
   }
