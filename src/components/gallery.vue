@@ -116,9 +116,6 @@ export default {
             }
         }, 20);
     },
-    updated() {
-        this.$refs.gallery_frame.$el.scrollLeft =0;
-    },
     methods: {
         toggle_tag(grp, tag) {
             if(grp.selected.includes(tag.id)) {
