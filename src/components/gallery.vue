@@ -39,12 +39,14 @@
         </v-card-text>
         <v-divider />
         <!-- 이미지 갤러리 영역 -->
-        <v-item-group class="imgframe" ref="gallery_frame">
-            <div class="mx-auto mx-2" :style="`display: flex; flex-direction: row; min-width: 100vh; width: ${filtered_images.length*320}px;`">
-                <img class="img-item" v-for="(img,ii) in filtered_images" :key="`galery-img.${ii}`"
+        <div>
+            <v-item-group class="imgframe" ref="gallery_frame">
+                <div class="d-flex-inline justify-space-around" :style="`min-width: 100vh; width: ${filtered_images.length*320}px;`">
+                    <img class="img-item" v-for="(img,ii) in filtered_images" :key="`galery-img.${ii}`"
                     :src="img.asset" :title="img.desc" @click="selected=img" />
-            </div>
-        </v-item-group>
+                </div>
+            </v-item-group>
+        </div>
         
 
         <!-- dialog section -->
@@ -81,8 +83,9 @@
 <script>
 import data from '@/data'
 
-const _tags = (im)=>(im.tags || '').split(',')
-    .map((t)=>t.trim()).filter((t)=>t);
+const _tags = (im)=> (im.tags instanceof Array) 
+        ? im.tags  
+        : (im.tags||'').split(',').map((t)=>t.trim()).filter((t)=>t);
 const _asset = (asset,base)=>`${base || '/gallery'}${asset}`;
 
 export default {
@@ -103,11 +106,18 @@ export default {
         let gallery = this.$refs.gallery_frame.$el;
 
         setInterval(()=>{
+            // skip upon dialog up
+            if(this.selected!=undefined) {
+                return;
+            }
             gallery.scrollLeft += 1;
             if(gallery.offsetWidth + gallery.scrollLeft + 10>=gallery.scrollWidth) {
                 gallery.scrollLeft = 0;
             }
         }, 20);
+    },
+    updated() {
+        this.$refs.gallery_frame.$el.scrollLeft =0;
     },
     methods: {
         toggle_tag(grp, tag) {
@@ -160,16 +170,9 @@ export default {
 }
 
 .imgframe .img-item {
-    width: 318px;
+    width: 316px;
     height: 40vh;
-    margin: 1px;
     object-fit: contain;
-}
-
-div.v-image.v-responsive {
-  height: initial !important;
-  max-width: 450px;
-  max-height: 50vh;
 }
 
 .imgframe ::-webkit-scrollbar-thumb {

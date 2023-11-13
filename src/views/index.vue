@@ -85,13 +85,5 @@ export default {
   word-wrap: normal;
 }
 
-::-webkit-scrollbar-thumb {
-  background: #1D3E1F;
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: #1D3E1F;
-}
 
 </style>
