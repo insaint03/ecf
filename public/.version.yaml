@@ -46,6 +46,7 @@ static:
     branding:
       # 일반 데스크톱 사이즈
       default:
+        logo: /images/logo.512.png
         header: 꽃과 풀 열매로 크고 작은 공간을 구성합니다
         content: |
           <span class="break-hint">푸른빛 구름이라는 뜻을 지닌</span>
@@ -61,6 +62,7 @@ static:
       medium: # default 와 공통 속성 사용
       # 모바일 스마트폰 사이즈
       small:
+        logo: /images/logo.256.png
         header: 꽃과 풀 열매로<br />크고 작은 공간을 구성합니다
         content: |
           푸른빛 구름이라는 뜻을 지닌 <br/>
@@ -127,47 +129,3 @@ static:
       link: 
 # 메인 이미지 갤러리
 gallery_tags:
-  - group: 형태
-    items:
-      - ko: 묶은꽃
-        en: Hand-tied
-      - ko: 꽂은꽃
-        en: Vase/Pieces
-      - ko: 담은꽃
-        en: Box/Basket
-      - ko: 공간꽃
-        en: Space Dec
-  - group: 계절
-    items:
-      - ko: 1월
-        en: 'January'
-      - ko: 2월
-        en: 'Febuary'
-      - ko: 3월
-        en: 'March'
-      - ko: 4월
-        en: 'April'
-      - ko: 5월
-        en: 'May'
-      - ko: 6월
-        en: 'June'
-      - ko: 7월
-        en: 'July'
-      - ko: 8월
-        en: 'August'
-      - ko: 9월
-        en: 'September'
-      - ko: 10월
-        en: 'October'
-      - ko: 11월
-        en: 'November'
-      - ko: 12월
-        en: 'December'
-  - group: 주제
-    items:
-        - ko: 웨딩
-          en: 'Wedding'
-        - ko: 선물
-          en: 'Gift'
-        - ko: 프로젝트
-          en: 'Project'

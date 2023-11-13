@@ -106,14 +106,11 @@ const menu = [
 
 export default {
   name: 'App',
-  created() {
-    (async ()=>{
-      let conf = await data.settings;
-      console.log(conf.channels);
-      this.social = conf.channels;
-      this.brand = conf.brand;
-      this.static = conf.static.index;
-    })();
+  async created() {
+    let conf = await data.settings;
+    this.social = conf.channels;
+    this.brand = conf.brand;
+    this.static = conf.static.index;
   },
   methods: {
     openChannel(sns) {
