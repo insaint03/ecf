@@ -47,7 +47,7 @@ static:
       # 일반 데스크톱 사이즈
       default:
         logo: /images/logo.512.png
-        header: 꽃과 풀 열매로 크고 작은 공간을 구성합니다
+        header: 꽃과 풀 열매로 <br /> 크고 작은 공간을 구성합니다
         content: |
           <span class="break-hint">푸른빛 구름이라는 뜻을 지닌</span>
           <span class="break-hint"><span style="color: primary; font-weight: 900;">'취운'</span>은 저의 오랜 이름입니다.</span><br />
@@ -107,7 +107,7 @@ static:
 
   # 수업 신청 카드섹션
 classes:
-  - title: 심야취운화
+  - title: 심야취운화, 소설
     desc: 심야, 원데이
     tags:
       - 야간
@@ -115,14 +115,12 @@ classes:
     image: https://lh4.googleusercontent.com/-ksaG8pc5ckWGNIqVL1C_1_Jm8E6U6hXDIKA_XlH6galVBWapX7u6oZr8TLJzwzi1861tRmhicfYYDO0oA1d7pqdWb6X3TdfK7kURcuozxnKwfeWL-OmSka22Ld7wr8VVg=w1080
     link: https://docs.google.com/forms/d/e/1FAIpQLSe8K8VaASjC06K-XzoHnyThwNtBD05n7dm6C3z52KA0T2I54Q/viewform?embedded=true
     period:
-      from: 2023-07-22
-      till: 2023-12-31
+      till: 2023-11-21
   - title: 백주취운화
     desc: 전문가 과정
     tags:
       - 전문가
       - 주간
-    image: https://lh4.googleusercontent.com/-ksaG8pc5ckWGNIqVL1C_1_Jm8E6U6hXDIKA_XlH6galVBWapX7u6oZr8TLJzwzi1861tRmhicfYYDO0oA1d7pqdWb6X3TdfK7kURcuozxnKwfeWL-OmSka22Ld7wr8VVg=w1080
     link: 
     period:
       from:
