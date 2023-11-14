@@ -3,7 +3,7 @@
     <v-card elevation="0">
         <!-- 필터 영역 -->
         <v-card-text>
-            <v-expansion-panels mandatory accordion flat multiple>
+            <v-expansion-panels accordion flat multiple v-model="filters">
                 <v-row>
                     <v-col v-for="g in groups" :key="`exp-tag.${g.group}`">
                         <v-expansion-panel flat>
@@ -17,8 +17,8 @@
                                     close close-icon="mdi-close-circle"
                                     color="secondary" :title="gt"
                                     style="margin-left: 12px; max-width: 20vw;"
-                                    @click:close="toggle_tag(g, gt)"
-                                    @click.stop="toggle_tag(g, gt)">
+                                    @click:close="toggle_tag(g, {id: gt})"
+                                    @click.stop="toggle_tag(g, {id: gt})">
                                     {{ gt }}
                                     </v-chip>
                                 </template>
@@ -101,6 +101,9 @@ export default {
             items: g.items,
             selected: [],
         }));
+        if(0<this.groups.length) {
+            this.filters = [0];
+        }
     },
     async mounted() {
         let gallery = this.$refs.gallery_frame.$el;
@@ -154,6 +157,7 @@ export default {
             images: [],
             length: 12,
             language: 'ko',
+            filters: [],
         };
     }
 }
