@@ -1,41 +1,83 @@
 <template>
   <v-container>
     <v-row>
-      <v-col>
-        <v-card elevation="1">
-          <v-toolbar dark color="primary">
-            <v-toolbar-title class="font-subtitle">취운화 꽃수업</v-toolbar-title>
-            <v-spacer />
-            <v-toolbar-items>
-              <v-icon>mdi-calendar</v-icon>
-              <v-btn text readonly>신청 기간 2022-07-22 ~ 08-09</v-btn>
-            </v-toolbar-items>
-          </v-toolbar>
-          <v-card-text>
-            <iframe 
-              src="https://docs.google.com/forms/d/e/1FAIpQLSe8K8VaASjC06K-XzoHnyThwNtBD05n7dm6C3z52KA0T2I54Q/viewform?embedded=true" 
-              width="100%"
-              height="4000"
-              frameborder="0" 
-              marginwidth="8"
-              marginheight="8">
-                잠시만 기다려주세요. 불러오고 있습니다...
-            </iframe>
-          </v-card-text>
-        </v-card>
-      </v-col>
+      <template v-if="0<running.length">
+        <v-col cols="12" md="6" lg="4" v-for="(cls,ci) in running" :key="`classes.${ci}`"
+          v-show="is_active(cls)">
+          <v-card elevation="1">
+            <v-toolbar dark color="primary">
+              <v-toolbar-title class="font-subtitle">{{ cls.title }}</v-toolbar-title>
+              <v-spacer />
+              <v-toolbar-items v-if="cls.period && (cls.period.from || cls.period.till)">
+                <v-icon>mdi-calendar</v-icon>
+                <p style="margin:auto;">
+                  <span>{{ cls.period.from || '' }}</span><br />
+                  </span>~ {{ cls.period.till || '' }}</span>
+                </p>
+              </v-toolbar-items>
+            </v-toolbar>
+            <a :href="cls.link" target="_blank">
+              <v-img :src="cls.image" />
+            </a>
+            <v-card-text>
+              <p>{{ cls.desc  }}</p>
+            </v-card-text>
+            <v-card-actions>
+              <v-chip-group v-if="cls.tags">
+                <v-chip v-for="tag,ti in cls.tags" :key="`cls.tag.${ci}-${ti}`">{{ tag }}</v-chip>
+              </v-chip-group>
+              <v-spacer />
+              <a :href="cls.link" target="_blank">
+                <v-btn icon color="primary"><v-icon>{{ cls.text || 'mdi-arrow-right-bold' }}</v-icon></v-btn>
+              </a>
+            </v-card-actions>
+          </v-card>
+        </v-col>
+      </template>
+      <template v-else>
+        <v-spacer />
+        <v-col >
+          <v-subheader>신청 가능한 수업이 없습니다</v-subheader>
+          <v-skeleton-loader type="image, article" />
+        </v-col>
+        <v-spacer />
+      </template>
     </v-row>
   </v-container>
 </template>
  
 <script>
+import data from '@/data';
+
 export default {
     path: 'class',
     name: 'class',
     routeTitle: '수업',
+    async created() {
+      let settings = await data.settings;
+      this.clss = settings.static.classes;
+      console.log(this.clss);
+    },
+    methods: {
+      is_active(cls) {
+        if(cls.period) {
+          let pfrom = cls.period.from ? new Date(cls.period.from) : new Date();
+          let ptill = cls.period.till ? new Date(cls.period.till) : new Date();
+          let now = new Date();
+          console.log(cls.title, pfrom.toLocaleDateString(), ptill.toLocaleDateString(), now.toLocaleDateString(), now <= ptill,  pfrom <= now);
+          return now <= ptill && pfrom <= now;
+        }
+        return true;
+      },
+    },
+    computed: {
+      running() {
+        return this.clss.filter(this.is_active);
+      }
+    },
     data() {
         return {
-            
+            clss: [],
         }
     }
 }
