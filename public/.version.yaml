@@ -106,20 +106,26 @@ static:
           네, 현재로서는 주문 제작만으로 운영하고 있습니다.
 
   # 수업 신청 카드섹션
-  classes:
-    - title: 심야취운화
-      desc: 심야, 원데이
-      tags:
-        - 야간
-        - 원데이
-      image: https://lh4.googleusercontent.com/-ksaG8pc5ckWGNIqVL1C_1_Jm8E6U6hXDIKA_XlH6galVBWapX7u6oZr8TLJzwzi1861tRmhicfYYDO0oA1d7pqdWb6X3TdfK7kURcuozxnKwfeWL-OmSka22Ld7wr8VVg=w1080
-      link: https://docs.google.com/forms/d/e/1FAIpQLSe8K8VaASjC06K-XzoHnyThwNtBD05n7dm6C3z52KA0T2I54Q/viewform?embedded=true
-    - title: 백주취운화
-      desc: 전문가 과정
-      tags:
-        - 전문가
-        - 주간
-      image: https://lh4.googleusercontent.com/-ksaG8pc5ckWGNIqVL1C_1_Jm8E6U6hXDIKA_XlH6galVBWapX7u6oZr8TLJzwzi1861tRmhicfYYDO0oA1d7pqdWb6X3TdfK7kURcuozxnKwfeWL-OmSka22Ld7wr8VVg=w1080
-      link: 
+classes:
+  - title: 심야취운화
+    desc: 심야, 원데이
+    tags:
+      - 야간
+      - 원데이
+    image: https://lh4.googleusercontent.com/-ksaG8pc5ckWGNIqVL1C_1_Jm8E6U6hXDIKA_XlH6galVBWapX7u6oZr8TLJzwzi1861tRmhicfYYDO0oA1d7pqdWb6X3TdfK7kURcuozxnKwfeWL-OmSka22Ld7wr8VVg=w1080
+    link: https://docs.google.com/forms/d/e/1FAIpQLSe8K8VaASjC06K-XzoHnyThwNtBD05n7dm6C3z52KA0T2I54Q/viewform?embedded=true
+    period:
+      from: 2023-07-22
+      till: 2023-12-31
+  - title: 백주취운화
+    desc: 전문가 과정
+    tags:
+      - 전문가
+      - 주간
+    image: https://lh4.googleusercontent.com/-ksaG8pc5ckWGNIqVL1C_1_Jm8E6U6hXDIKA_XlH6galVBWapX7u6oZr8TLJzwzi1861tRmhicfYYDO0oA1d7pqdWb6X3TdfK7kURcuozxnKwfeWL-OmSka22Ld7wr8VVg=w1080
+    link: 
+    period:
+      from:
+      till:
 # 메인 이미지 갤러리
 gallery_tags:

@@ -4,7 +4,7 @@
       <template v-if="0<running.length">
         <v-col cols="12" md="6" lg="4" v-for="(cls,ci) in running" :key="`classes.${ci}`"
           v-show="is_active(cls)">
-          <v-card elevation="1">
+          <v-card elevation="1" @click="go(cls)" style="cursor: pointer">
             <v-toolbar dark color="primary">
               <v-toolbar-title class="font-subtitle">{{ cls.title }}</v-toolbar-title>
               <v-spacer />
@@ -16,9 +16,8 @@
                 </p>
               </v-toolbar-items>
             </v-toolbar>
-            <a :href="cls.link" target="_blank">
-              <v-img :src="cls.image" />
-            </a>
+              <v-img v-if="cls.image" :src="cls.image" />
+              <v-skeleton-loader v-else type="image, article" />
             <v-card-text>
               <p>{{ cls.desc  }}</p>
             </v-card-text>
@@ -27,9 +26,7 @@
                 <v-chip v-for="tag,ti in cls.tags" :key="`cls.tag.${ci}-${ti}`">{{ tag }}</v-chip>
               </v-chip-group>
               <v-spacer />
-              <a :href="cls.link" target="_blank">
-                <v-btn icon color="primary"><v-icon>{{ cls.text || 'mdi-arrow-right-bold' }}</v-icon></v-btn>
-              </a>
+              <v-btn icon color="primary"><v-icon>{{ cls.text || 'mdi-arrow-right-bold' }}</v-icon></v-btn>
             </v-card-actions>
           </v-card>
         </v-col>
@@ -55,7 +52,7 @@ export default {
     routeTitle: '수업',
     async created() {
       let settings = await data.settings;
-      this.clss = settings.static.classes;
+      this.clss = settings.classes;
       console.log(this.clss);
     },
     methods: {
@@ -69,6 +66,13 @@ export default {
         }
         return true;
       },
+      go(cls) {
+        if(this.is_active(cls) && cls.link) {
+          window.open(cls.link, '_blank');
+        } else {
+          window.alert('준비중입니다!');
+        }
+      }
     },
     computed: {
       running() {
