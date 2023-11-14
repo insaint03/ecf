@@ -76,37 +76,31 @@ static:
   inquiry:
     guide:
       - title: 주문하신 꽃에 맞게 포장되어 배송됩니다
-        content: |
-          <v-row>
-            <v-col cols="6"><v-img :src="guide_images.first.left" /></v-col>
-            <v-col cols="6"><v-img :src="guide_images.first.right" /></v-col>
-          </v-row>
+        images:
+          - images/guide.01.01.jpg
+          - images/guide.01.02.jpg
       - title: 부케는 종이포장 없이 박스에 담아 드립니다
-        content: |
-          <v-row>
-            <v-col>
-              <v-img :src="guide_images.second" style="min-width: 300px; min-height: 300px;" />
-            </v-col>
-          </v-row>
-      - title: &lt;꽃 관리&gt; &lt;꽃 이름&gt; 카드가 동봉됩니다
-        content: |
-          <v-row>
-            <v-col><v-img :src="guide_images.third" style="min-width: 300px; min-height: 300px;" /></v-col>
-          </v-row>
+        images:
+          - images/guide.02.01.jpg
+          - images/guide.02.02.jpg
+      - title: <꽃 관리> <꽃 이름> 카드가 동봉됩니다
+        images:
+          - images/guide.03.01.jpg
     faq:
       - title: 꽃 주문은 어떻게 하나요?
         content: | 
           <ul>
-            <li>꽃이 필요하신 날짜로부터 3-7일 전에 카카오톡으로 <a target="blank" href="https://pf.kakao.com/_KYqDT/chat">연락 주세요</a>. 받는 분이 좋아하시는 색감, 취향 그리고 원하시는 가격대 등을 미리 말씀 주시면 더욱 편하게 주문하실 수 있습니다.</li>
-            <li>웨딩 꽃은 최소 수 주, 시간 여유를 두고 연락 주시는 편이 좋습니다. 원하시는 색감, 드레스와 결혼식장과 같은 주변 정보를 알려 주시면 더욱 잘 어울리는 조합을 찾기 수월합니다.</li>
-            <li>공간 세팅, 광고 촬영 등 프로젝트성 의뢰는 이메일 <a target="blank" href="mailto:emerald.cloud.flower@gmail.com">emerald.cloud.flower@gmail.com</a> 보내 주시면 빠른 회신 드리겠습니다.</li>
+            <li>꽃이 필요하신 날짜로부터 3-7일 전에 카카오톡으로 <a target="blank" href="https://pf.kakao.com/_KYqDT/chat">연락 주세요</a>.<br />
+             받는 분이 좋아하시는 색감, 취향 그리고 원하시는 가격대 등을 미리 말씀 주시면 <wbr /> 더욱 편하게 주문하실 수 있습니다.</li>
+            <li>웨딩 꽃은 최소 수 주, 시간 여유를 두고 연락 주시는 편이 좋습니다. <br /> 원하시는 색감, 드레스와 결혼식장과 같은 주변 정보를 알려 주시면 <wbr />더욱 잘 어울리는 조합을 찾기 수월합니다.</li>
+            <li>공간 세팅, 광고 촬영 등 프로젝트성 의뢰는 이메일 <br /><a target="blank" href="mailto:emerald.cloud.flower@gmail.com">emerald.cloud.flower@gmail.com</a> 보내 주시면 빠른 회신 드리겠습니다.</li>
           </ul>
       - title: 꽃은 어떻게 받아 볼 수 있나요?
         content: |
-          작업실 (서울시 서초구 양재동) 픽업과 퀵 배송을 선택하실 수 있습니다. 퀵 비용은 거리에 따라 책정되며, 별도 부담입니다.
+          작업실 (서울시 서초구 양재동) 픽업과 퀵 배송을 선택하실 수 있습니다. <wbr />퀵 비용은 거리에 따라 책정되며, 별도 부담입니다.
       - title: 최소 주문 금액이 있나요?
         content: | 
-          취운화의 꽃은 모두 주문 제작 방식이기 때문에 <b>7만원 이상</b>부터 주문이 가능합니다
+          <p>취운화의 꽃은 모두 주문 제작 방식이기 때문에<wbr />&nbsp;<b>10만원 이상</b>&nbsp;부터 주문이 가능합니다</p>
       - title: 주문 제작만 가능한가요?
         content: | 
           네, 현재로서는 주문 제작만으로 운영하고 있습니다.

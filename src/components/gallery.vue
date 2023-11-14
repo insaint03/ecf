@@ -13,7 +13,7 @@
                                 </span>
                                 <span v-if="g.selected" align="center" justify="center">
                                 <template v-for="gt in g.selected">
-                                    <v-chip  :key="`group-tag-${g.group}.${gt}`"
+                                    <v-chip :key="`group-tag-${g.group}.${gt}`"
                                     close close-icon="mdi-close-circle"
                                     color="secondary" :title="gt"
                                     style="margin-left: 12px; max-width: 20vw;"
