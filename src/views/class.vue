@@ -40,6 +40,36 @@
         <v-spacer />
       </template>
     </v-row>
+
+    <!-- 양식 링크 -->
+    <v-dialog v-if="active" v-model="active" fullscreen>
+      <v-card>
+        <v-toolbar flat dense>
+          <v-spacer />
+          <v-toolbar-items>
+              <v-btn icon @click="active = null"><v-icon>mdi-close</v-icon></v-btn>
+          </v-toolbar-items>
+        </v-toolbar>
+        <v-card-text>
+          <v-row>
+            <v-col class="d-sm-none d-md-block" md="3">
+              <h2>{{ active.title  }}</h2>
+              <p>&nbsp;</p>
+              <p>
+                <v-img :src="active.image" />
+              </p>
+              <p>&nbsp;</p>
+              <p>
+                {{  active.desc }}
+              </p>
+            </v-col>
+            <v-col cols="12" md="9">
+              <iframe class="class_registration" :src="active.link" />
+            </v-col>
+          </v-row>
+        </v-card-text>
+      </v-card>
+    </v-dialog>
   </v-container>
 </template>
  
@@ -68,7 +98,7 @@ export default {
       },
       go(cls) {
         if(this.is_active(cls) && cls.link) {
-          window.open(cls.link, '_blank');
+          this.active = cls;
         } else {
           window.alert('준비중입니다!');
         }
@@ -82,7 +112,18 @@ export default {
     data() {
         return {
             clss: [],
+            active: null,
         }
     }
 }
 </script>
+
+<style scoped>
+iframe.class_registration {
+  width: 100%;
+  padding: 0px;
+  margin: 0px;
+  border: none;
+  min-height: 80vh;  
+}
+</style>
