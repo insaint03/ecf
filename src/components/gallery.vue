@@ -142,7 +142,7 @@ export default {
             let filter_tags = this.selected_tags;
             if(0<filter_tags.length) {
                 basis = basis.filter((img)=>
-                    filter_tags.reduce((g,t)=>g&&img.tags.includes(t), true));
+                    filter_tags.reduce((g,t)=>g || img.tags.includes(t), false));
             }
             basis = basis.slice(0, this.length);
             basis.sort(()=>Math.random()-.5);
