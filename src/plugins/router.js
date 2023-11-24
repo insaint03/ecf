@@ -16,7 +16,7 @@ let router =  new VueRouter({
 });
 
 router.afterEach((to, from)=>{
-    window.dataLayer.push({
+    (window.dataLayer || []).push({
         event: 'route.move',
         path: to.path,
         query: to.query,

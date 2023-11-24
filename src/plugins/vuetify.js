@@ -1,12 +1,14 @@
+import Vue from 'vue'
 import Vuetify from 'vuetify'
 import 'vuetify/dist/vuetify.min.css'
 import templateScreen from '@/template'
 
 import colors from 'vuetify/lib/util/colors'
 
-export default (function(Vue) {
-    Vue.use(Vuetify);
-    Vue.component(templateScreen.name, templateScreen);
+Vue.use(Vuetify);
+
+export default (function(vue) {
+    vue.component(templateScreen.name, templateScreen);
     
     return new Vuetify({
         theme: {
